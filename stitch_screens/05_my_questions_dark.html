@@ -1,0 +1,308 @@
+﻿<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_tab" name="shell-type"/><title>CodeTrack</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      colors: {
+        "obsidian-base": "#090d16",
+        "obsidian-card": "#131c2e",
+        "obsidian-sunken": "#0c1322",
+        "obsidian-border": "#1f2d48",
+        "obsidian-border-subtle": "rgba(255, 255, 255, 0.07)",
+        "primary": "#818cf8",
+        "primary-light": "#c7d2fe",
+        "primary-glow": "rgba(99, 102, 241, 0.25)",
+        "on-surface": "#f8fafc",
+        "on-surface-variant": "#94a3b8",
+        "on-surface-muted": "#64748b"
+      },
+      fontFamily: {
+        "body": ["Plus Jakarta Sans", "sans-serif"],
+        "mono": ["JetBrains Mono", "monospace"]
+      }
+    }
+  }
+};</script><style>@layer base { html, body { width: 100vw; margin: 0; padding: 0; background-color: #090d16; } body { overscroll-behavior: none; } .pb-safe { padding-bottom: env(safe-area-inset-bottom, 0px); } .pt-safe { padding-top: env(safe-area-inset-top, 0px); } main > :first-child { margin-top: 0 !important; } main > :last-child { margin-bottom: 0 !important; } } ::-webkit-scrollbar { display: none; } .dark-raised { box-shadow: 0 4px 16px -2px rgba(0, 0, 0, 0.5), 0 1px 3px 0 rgba(0, 0, 0, 0.35); } .dark-inset { box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.45); } .indigo-fab { box-shadow: 0 4px 18px 2px rgba(99, 102, 241, 0.45); }
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style></head><body class="bg-obsidian-base font-body text-on-surface antialiased min-h-screen flex flex-col selection:bg-indigo-500/30 selection:text-indigo-200"><header class="fixed top-0 w-full z-50 pt-safe bg-[#090d16]/90 backdrop-blur-xl border-b border-obsidian-border/60"><div class="h-16 px-4 flex items-center justify-between"><div class="flex items-center gap-3"><div class="w-10 h-10 rounded-xl bg-obsidian-card border border-obsidian-border dark-raised flex items-center justify-center text-primary"><span class="material-symbols-outlined text-[20px]">terminal</span></div><div class="flex flex-col"><span class="text-[11px] font-bold uppercase tracking-wider text-primary">CodeTrack</span><span class="text-sm font-semibold text-white leading-tight">Questions</span></div></div><div class="flex items-center gap-2.5"><div class="h-9 px-3 rounded-full bg-obsidian-sunken border border-obsidian-border/70 flex items-center gap-1.5"><span class="text-sm">­ƒöÑ</span><span class="text-xs font-semibold text-slate-200 tracking-tight">12d</span></div><div class="w-8 h-8 rounded-full bg-indigo-600 text-white flex items-center justify-center border border-indigo-400/40 shadow-sm"><span class="material-symbols-outlined text-[18px]">person</span></div></div></div></header><main class="flex flex-col relative w-full pt-16 pb-28 bg-obsidian-base min-h-screen"><div class="flex flex-col w-full px-4 pt-3 pb-6 space-y-5">
+<!-- Title & Metric Bar -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2.5">
+<h1 class="text-xl font-semibold tracking-tight text-white">My Questions</h1>
+<span class="px-2.5 py-0.5 rounded-full text-xs font-semibold text-indigo-300 bg-indigo-950/70 border border-indigo-800/60">120</span>
+</div>
+<div class="flex items-center gap-1.5">
+<button aria-label="Quick statistics" class="w-9 h-9 rounded-xl bg-obsidian-card border border-obsidian-border flex items-center justify-center text-slate-400 hover:text-white active:bg-obsidian-sunken transition-all" type="button">
+<span class="material-symbols-outlined text-[19px]">insights</span>
+</button>
+<button aria-label="Batch operations" class="w-9 h-9 rounded-xl bg-obsidian-card border border-obsidian-border flex items-center justify-center text-slate-400 hover:text-white active:bg-obsidian-sunken transition-all" type="button">
+<span class="material-symbols-outlined text-[19px]">checklist</span>
+</button>
+</div>
+</div>
+<!-- Search & Filter Trigger -->
+<div class="flex items-center gap-3">
+<div class="flex-1 h-12 rounded-xl bg-obsidian-sunken border border-obsidian-border/80 px-3.5 flex items-center gap-2.5 focus-within:border-indigo-500/60 transition-colors">
+<span class="material-symbols-outlined text-slate-400 text-[20px]">search</span>
+<input aria-label="Search questions" class="w-full bg-transparent text-sm text-slate-100 placeholder:text-slate-500 focus:outline-none font-medium" placeholder="Search title, tag, or #ID..." type="search"/>
+<button aria-label="Clear search" class="text-slate-500 hover:text-slate-300 flex items-center" type="button">
+<span class="material-symbols-outlined text-[16px]">close</span>
+</button>
+</div>
+<button aria-label="Open filter menu" class="w-12 h-12 rounded-xl bg-obsidian-card border border-obsidian-border flex items-center justify-center text-indigo-400 hover:text-indigo-300 active:bg-obsidian-sunken transition-all relative dark-raised" id="filterDrawerBtn" type="button">
+<span class="material-symbols-outlined text-[22px]">tune</span>
+<span class="absolute top-2.5 right-2.5 w-2 h-2 rounded-full bg-indigo-400 shadow-[0_0_6px_rgba(129,140,248,0.8)]"></span>
+</button>
+</div>
+<!-- Sorting Requirement Bar -->
+<div class="flex items-center justify-between px-1">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-indigo-400 text-[17px]">swap_vert</span>
+<span class="text-xs font-medium text-slate-400">Sorted by:</span>
+<button class="text-xs font-semibold text-indigo-300 hover:text-indigo-200 flex items-center gap-0.5 group" type="button">
+<span>Most Recently Active</span>
+<span class="material-symbols-outlined text-[14px] transition-transform group-hover:translate-y-0.5">arrow_downward</span>
+</button>
+</div>
+<span class="text-[11px] font-medium text-slate-500">5 of 120 shown</span>
+</div>
+<!-- Primary Category Tabs -->
+<div class="overflow-x-auto no-scrollbar -mx-4 px-4 flex items-center gap-2.5 py-1">
+<button class="px-4 py-2 rounded-full text-xs font-semibold bg-indigo-950/80 text-indigo-200 border border-indigo-500/40 shrink-0 flex items-center gap-1.5 shadow-[0_0_12px_rgba(99,102,241,0.2)]" type="button">
+<span>All</span>
+<span class="w-1.5 h-1.5 rounded-full bg-indigo-400 shadow-[0_0_4px_rgba(129,140,248,0.9)]"></span>
+<span class="text-[10px] text-indigo-300/80">120</span>
+</button>
+<button class="px-4 py-2 rounded-full text-xs font-medium bg-obsidian-card text-slate-300 border border-obsidian-border shrink-0 flex items-center gap-1.5 hover:text-white hover:border-slate-600 transition-all active:bg-obsidian-sunken" type="button">
+<span>DSA</span>
+<span class="text-[10px] text-slate-500">75</span>
+</button>
+<button class="px-4 py-2 rounded-full text-xs font-medium bg-obsidian-card text-slate-300 border border-obsidian-border shrink-0 flex items-center gap-1.5 hover:text-white hover:border-slate-600 transition-all active:bg-obsidian-sunken" type="button">
+<span>SQL</span>
+<span class="text-[10px] text-slate-500">25</span>
+</button>
+<button class="px-4 py-2 rounded-full text-xs font-medium bg-obsidian-card text-slate-300 border border-obsidian-border shrink-0 flex items-center gap-1.5 hover:text-white hover:border-slate-600 transition-all active:bg-obsidian-sunken" type="button">
+<span>Languages</span>
+<span class="text-[10px] text-slate-500">20</span>
+</button>
+</div>
+<!-- Secondary Quick Pill Filters -->
+<div class="flex flex-col gap-2">
+<div class="flex items-center gap-2 overflow-x-auto no-scrollbar -mx-4 px-4 py-0.5">
+<span class="text-[11px] font-medium uppercase tracking-wider text-slate-500 shrink-0">Status:</span>
+<button class="px-3 py-1 rounded-lg text-[11px] font-semibold bg-indigo-950/80 text-indigo-200 border border-indigo-700/60 shrink-0" type="button">All</button>
+<button class="px-3 py-1 rounded-lg text-[11px] font-medium bg-obsidian-card text-slate-300 border border-obsidian-border shrink-0 hover:text-white active:bg-obsidian-sunken" type="button">In Progress</button>
+<button class="px-3 py-1 rounded-lg text-[11px] font-medium bg-obsidian-card text-slate-300 border border-obsidian-border shrink-0 hover:text-white active:bg-obsidian-sunken" type="button">Done</button>
+<button class="px-3 py-1 rounded-lg text-[11px] font-medium bg-obsidian-card text-slate-300 border border-obsidian-border shrink-0 hover:text-white active:bg-obsidian-sunken flex items-center gap-1" type="button">
+<span class="w-1.5 h-1.5 rounded-full bg-rose-400"></span>
+<span>Overdue Revision</span>
+</button>
+</div>
+<div class="flex items-center gap-2 overflow-x-auto no-scrollbar -mx-4 px-4 py-0.5">
+<span class="text-[11px] font-medium uppercase tracking-wider text-slate-500 shrink-0">Diff:</span>
+<button class="px-3 py-1 rounded-lg text-[11px] font-medium bg-obsidian-card text-slate-300 border border-obsidian-border shrink-0 hover:text-white active:bg-obsidian-sunken" type="button">Easy</button>
+<button class="px-3 py-1 rounded-lg text-[11px] font-medium bg-obsidian-card text-slate-300 border border-obsidian-border shrink-0 hover:text-white active:bg-obsidian-sunken" type="button">Medium</button>
+<button class="px-3 py-1 rounded-lg text-[11px] font-medium bg-obsidian-card text-slate-300 border border-obsidian-border shrink-0 hover:text-white active:bg-obsidian-sunken" type="button">Hard</button>
+</div>
+</div>
+<!-- Question List (Ordered strictly by lastActivityAt DESC) -->
+<div class="space-y-3.5 pt-1">
+<!-- Card 1: Two Sum -->
+<article class="p-4 rounded-xl bg-obsidian-card border border-obsidian-border hover:border-indigo-500/40 dark-raised flex flex-col gap-3 relative transition-all active:scale-[0.99] cursor-pointer group">
+<div class="flex items-start justify-between gap-3">
+<div class="flex-1 min-w-0">
+<div class="flex items-center gap-2 mb-1.5 flex-wrap">
+<span class="px-2 py-0.5 rounded-md text-[10px] font-semibold bg-[#1e1b4b] text-[#a5b4fc] border border-indigo-800/60 tracking-wide font-mono">LeetCode #1</span>
+<span class="px-2 py-0.5 rounded-md text-[10px] font-medium bg-obsidian-sunken text-slate-400 border border-obsidian-border/70">DSA / Arrays</span>
+<span class="px-2 py-0.5 rounded-md text-[10px] font-semibold bg-[#064e3b]/80 text-[#6ee7b7] border border-emerald-700/50">Easy</span>
+<span class="px-2 py-0.5 rounded-md text-[10px] font-semibold bg-[#064e3b]/80 text-[#6ee7b7] border border-emerald-700/50 flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-[#6ee7b7] shadow-[0_0_4px_#6ee7b7]"></span>
+              Done
+            </span>
+</div>
+<h2 class="text-base font-semibold text-white leading-snug group-hover:text-indigo-300 transition-colors">Two Sum</h2>
+</div>
+<div class="w-8 h-8 rounded-lg bg-obsidian-sunken border border-obsidian-border flex items-center justify-center text-slate-400 group-hover:text-indigo-300 group-hover:border-indigo-500/50 transition-colors shrink-0">
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</div>
+</div>
+<!-- Notes Preview Snippet -->
+<div class="p-2.5 rounded-lg bg-obsidian-sunken border border-obsidian-border/70 text-xs text-slate-300 flex items-start gap-2">
+<span class="material-symbols-outlined text-indigo-400 text-[15px] shrink-0 mt-0.5">sticky_note_2</span>
+<p class="line-clamp-1 italic text-[11px] text-slate-400">Hash map complement lookup reduces time complexity from O(n┬▓) to O(n)...</p>
+</div>
+<!-- Subtext / Activity Tracker -->
+<div class="flex items-center justify-between text-[11px] text-slate-400 pt-0.5">
+<div class="flex items-center gap-1 text-slate-400">
+<span class="text-xs">ÔÜí</span>
+<span>Revised today, 10:30 AM</span>
+</div>
+<div class="flex items-center gap-1 text-indigo-300 font-medium">
+<span class="material-symbols-outlined text-[14px]">event_repeat</span>
+<span>29 Oct (Tomorrow)</span>
+</div>
+</div>
+</article>
+<!-- Card 2: SQL INNER JOIN vs LEFT JOIN -->
+<article class="p-4 rounded-xl bg-obsidian-card border border-obsidian-border hover:border-indigo-500/40 dark-raised flex flex-col gap-3 relative transition-all active:scale-[0.99] cursor-pointer group">
+<div class="flex items-start justify-between gap-3">
+<div class="flex-1 min-w-0">
+<div class="flex items-center gap-2 mb-1.5 flex-wrap">
+<span class="px-2 py-0.5 rounded-md text-[10px] font-semibold bg-[#1e1b4b] text-[#a5b4fc] border border-indigo-800/60 tracking-wide font-mono">SQL-02</span>
+<span class="px-2 py-0.5 rounded-md text-[10px] font-medium bg-obsidian-sunken text-slate-400 border border-obsidian-border/70">SQL / Joins</span>
+<span class="px-2 py-0.5 rounded-md text-[10px] font-semibold bg-[#451a03]/80 text-[#fcd34d] border border-amber-700/50">Medium</span>
+<span class="px-2 py-0.5 rounded-md text-[10px] font-semibold bg-[#451a03]/80 text-[#fcd34d] border border-amber-700/50 flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-[#fcd34d] shadow-[0_0_4px_#fcd34d]"></span>
+              In Progress
+            </span>
+</div>
+<h2 class="text-base font-semibold text-white leading-snug group-hover:text-indigo-300 transition-colors">SQL INNER JOIN vs LEFT JOIN</h2>
+</div>
+<div class="w-8 h-8 rounded-lg bg-obsidian-sunken border border-obsidian-border flex items-center justify-center text-slate-400 group-hover:text-indigo-300 group-hover:border-indigo-500/50 transition-colors shrink-0">
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</div>
+</div>
+<!-- Subtext / Activity Tracker -->
+<div class="flex items-center justify-between text-[11px] text-slate-400 pt-0.5">
+<div class="flex items-center gap-1 text-slate-400">
+<span class="text-xs">ÔÜí</span>
+<span>Notes edited today, 9:00 AM</span>
+</div>
+<div class="flex items-center gap-1 text-amber-300 font-medium">
+<span class="material-symbols-outlined text-[14px]">timer</span>
+<span>Due in 2 days</span>
+</div>
+</div>
+</article>
+<!-- Card 3: Reverse an Array -->
+<article class="p-4 rounded-xl bg-obsidian-card border border-obsidian-border hover:border-indigo-500/40 dark-raised flex flex-col gap-3 relative transition-all active:scale-[0.99] cursor-pointer group">
+<div class="flex items-start justify-between gap-3">
+<div class="flex-1 min-w-0">
+<div class="flex items-center gap-2 mb-1.5 flex-wrap">
+<span class="px-2 py-0.5 rounded-md text-[10px] font-semibold bg-[#1e1b4b] text-[#a5b4fc] border border-indigo-800/60 tracking-wide font-mono">GFG-03</span>
+<span class="px-2 py-0.5 rounded-md text-[10px] font-medium bg-obsidian-sunken text-slate-400 border border-obsidian-border/70">DSA / Arrays</span>
+<span class="px-2 py-0.5 rounded-md text-[10px] font-semibold bg-[#064e3b]/80 text-[#6ee7b7] border border-emerald-700/50">Easy</span>
+<span class="px-2 py-0.5 rounded-md text-[10px] font-semibold bg-[#064e3b]/80 text-[#6ee7b7] border border-emerald-700/50 flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-[#6ee7b7] shadow-[0_0_4px_#6ee7b7]"></span>
+              Done
+            </span>
+</div>
+<h2 class="text-base font-semibold text-white leading-snug group-hover:text-indigo-300 transition-colors">Reverse an Array</h2>
+</div>
+<div class="w-8 h-8 rounded-lg bg-obsidian-sunken border border-obsidian-border flex items-center justify-center text-slate-400 group-hover:text-indigo-300 group-hover:border-indigo-500/50 transition-colors shrink-0">
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</div>
+</div>
+<!-- Subtext / Activity Tracker -->
+<div class="flex items-center justify-between text-[11px] text-slate-400 pt-0.5">
+<div class="flex items-center gap-1 text-slate-400">
+<span class="text-xs">ÔÜí</span>
+<span>Completed yesterday, 4:15 PM</span>
+</div>
+<div class="flex items-center gap-1 text-slate-300 font-medium">
+<span class="material-symbols-outlined text-[14px]">event</span>
+<span>Next: 30 Oct</span>
+</div>
+</div>
+</article>
+<!-- Card 4: Delegates & Events in C# -->
+<article class="p-4 rounded-xl bg-obsidian-card border border-obsidian-border hover:border-indigo-500/40 dark-raised flex flex-col gap-3 relative transition-all active:scale-[0.99] cursor-pointer group">
+<div class="flex items-start justify-between gap-3">
+<div class="flex-1 min-w-0">
+<div class="flex items-center gap-2 mb-1.5 flex-wrap">
+<span class="px-2 py-0.5 rounded-md text-[10px] font-semibold bg-[#1e1b4b] text-[#a5b4fc] border border-indigo-800/60 tracking-wide font-mono">C#-08</span>
+<span class="px-2 py-0.5 rounded-md text-[10px] font-medium bg-obsidian-sunken text-slate-400 border border-obsidian-border/70">Languages / C#</span>
+<span class="px-2 py-0.5 rounded-md text-[10px] font-semibold bg-[#451a03]/80 text-[#fcd34d] border border-amber-700/50">Medium</span>
+<span class="px-2 py-0.5 rounded-md text-[10px] font-semibold bg-[#451a03]/80 text-[#fcd34d] border border-amber-700/50 flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-[#fcd34d] shadow-[0_0_4px_#fcd34d]"></span>
+              In Progress
+            </span>
+</div>
+<h2 class="text-base font-semibold text-white leading-snug group-hover:text-indigo-300 transition-colors">Delegates &amp; Events in C#</h2>
+</div>
+<div class="w-8 h-8 rounded-lg bg-obsidian-sunken border border-obsidian-border flex items-center justify-center text-slate-400 group-hover:text-indigo-300 group-hover:border-indigo-500/50 transition-colors shrink-0">
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</div>
+</div>
+<!-- Subtext / Activity Tracker -->
+<div class="flex items-center justify-between text-[11px] text-slate-400 pt-0.5">
+<div class="flex items-center gap-1 text-slate-400">
+<span class="text-xs">ÔÜí</span>
+<span>Created 26 Oct</span>
+</div>
+<div class="flex items-center gap-1 text-slate-300 font-medium">
+<span class="material-symbols-outlined text-[14px]">schedule</span>
+<span>Scheduled: 31 Oct</span>
+</div>
+</div>
+</article>
+<!-- Card 5: LRU Cache Implementation -->
+<article class="p-4 rounded-xl bg-obsidian-card border border-obsidian-border hover:border-indigo-500/40 dark-raised flex flex-col gap-3 relative transition-all active:scale-[0.99] cursor-pointer group">
+<div class="flex items-start justify-between gap-3">
+<div class="flex-1 min-w-0">
+<div class="flex items-center gap-2 mb-1.5 flex-wrap">
+<span class="px-2 py-0.5 rounded-md text-[10px] font-semibold bg-[#1e1b4b] text-[#a5b4fc] border border-indigo-800/60 tracking-wide font-mono">LeetCode #146</span>
+<span class="px-2 py-0.5 rounded-md text-[10px] font-medium bg-obsidian-sunken text-slate-400 border border-obsidian-border/70">DSA / Linked List</span>
+<span class="px-2 py-0.5 rounded-md text-[10px] font-semibold bg-[#4c0519]/80 text-[#fda4af] border border-rose-800/50">Hard</span>
+<span class="px-2 py-0.5 rounded-md text-[10px] font-medium bg-slate-800/80 text-slate-300 border border-slate-700/60 flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-slate-400"></span>
+              Not Started
+            </span>
+</div>
+<h2 class="text-base font-semibold text-white leading-snug group-hover:text-indigo-300 transition-colors">LRU Cache Implementation</h2>
+</div>
+<div class="w-8 h-8 rounded-lg bg-obsidian-sunken border border-obsidian-border flex items-center justify-center text-slate-400 group-hover:text-indigo-300 group-hover:border-indigo-500/50 transition-colors shrink-0">
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</div>
+</div>
+<!-- Subtext / Activity Tracker -->
+<div class="flex items-center justify-between text-[11px] text-slate-400 pt-0.5">
+<div class="flex items-center gap-1 text-slate-400">
+<span class="text-xs">ÔÜí</span>
+<span>Created 25 Oct</span>
+</div>
+<span class="text-[10px] text-slate-400">Queue position #14</span>
+</div>
+</article>
+</div>
+<!-- Pagination / Load State Card -->
+<div class="p-3 rounded-xl bg-obsidian-card border border-obsidian-border flex items-center justify-center gap-2 text-xs font-semibold text-indigo-300 hover:text-white hover:border-indigo-500/50 cursor-pointer active:bg-obsidian-sunken transition-all dark-raised">
+<span class="material-symbols-outlined text-[16px]">expand_more</span>
+<span>Load 10 More Questions</span>
+</div>
+<!-- Bottom Floating Action Section (Prominent + Add Question Action Cue) -->
+<div class="pt-2 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded-lg bg-obsidian-sunken border border-obsidian-border flex items-center justify-center">
+<span class="material-symbols-outlined text-[15px] text-indigo-400">sync</span>
+</div>
+<span class="text-[11px] text-slate-400">Auto-synced with Git &amp; LeetCode</span>
+</div>
+<button class="h-11 px-5 rounded-full bg-obsidian-card text-indigo-300 border border-obsidian-border hover:border-indigo-500/50 hover:text-white dark-raised flex items-center gap-2 text-xs font-semibold active:bg-obsidian-sunken transition-all" type="button">
+<span class="material-symbols-outlined text-[18px]">add</span>
+<span>Add Question</span>
+</button>
+</div>
+</div>
+<script>
+  (function() {
+    const filterBtn = document.getElementById('filterDrawerBtn');
+    if (filterBtn) {
+      filterBtn.addEventListener('click', () => {
+        filterBtn.classList.toggle('border-indigo-400');
+        filterBtn.classList.toggle('bg-obsidian-sunken');
+      });
+    }
+
+    const cards = document.querySelectorAll('article');
+    cards.forEach(card => {
+      card.addEventListener('click', () => {
+        card.classList.add('scale-[0.98]');
+        setTimeout(() => card.classList.remove('scale-[0.98]'), 120);
+      });
+    });
+  })();
+</script></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-[#0c111d]/95 backdrop-blur-xl border-t border-obsidian-border shadow-[0_-4px_20px_rgba(0,0,0,0.5)]" data-active-classes="text-indigo-400 font-semibold"><div class="h-20 px-2 flex items-center justify-around"><a class="min-w-[48px] min-h-[48px] flex flex-col items-center justify-center gap-1 text-slate-400 hover:text-slate-200 transition-all" data-path="dashboard" href="#"><span class="material-symbols-outlined text-[22px]">space_dashboard</span><span class="text-[11px] tracking-tight">Dashboard</span></a><a aria-current="page" class="min-w-[48px] min-h-[48px] flex flex-col items-center justify-center gap-1 transition-all text-indigo-400 font-semibold drop-shadow-[0_0_8px_rgba(129,140,248,0.5)]" data-path="questions" href="#"><span class="material-symbols-outlined text-[22px]">code_blocks</span><span class="text-[11px] tracking-tight">Questions</span></a><a class="min-w-[48px] min-h-[48px] flex flex-col items-center justify-center -translate-y-3 group" data-path="add-question" href="#"><div class="w-12 h-12 rounded-full bg-indigo-600 text-white border border-indigo-400/50 flex items-center justify-center indigo-fab transition-transform active:scale-95"><span class="material-symbols-outlined text-[26px]">add</span></div><span class="text-[10px] font-semibold text-indigo-300 mt-1">Add</span></a><a class="min-w-[48px] min-h-[48px] flex flex-col items-center justify-center gap-1 text-slate-400 hover:text-slate-200 transition-all" data-path="revisions" href="#"><span class="material-symbols-outlined text-[22px]">schedule</span><span class="text-[11px] tracking-tight">Revisions</span></a><a class="min-w-[48px] min-h-[48px] flex flex-col items-center justify-center gap-1 text-slate-400 hover:text-slate-200 transition-all" data-path="stats" href="#"><span class="material-symbols-outlined text-[22px]">query_stats</span><span class="text-[11px] tracking-tight">Stats</span></a></div></nav></body></html>

@@ -1,0 +1,386 @@
+﻿<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_stack" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100vw;margin:0;padding:0;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { colors: { "surface-container-highest": "#31353f", "tertiary": "#4edea3", "on-secondary": "#131e8c", "surface-variant": "#31353f", "on-tertiary-container": "#000703", "primary-container": "#8083ff", "inverse-surface": "#dfe2ef", "on-secondary-fixed-variant": "#2f3aa3", "on-background": "#dfe2ef", "surface-dim": "#0f131c", "surface-container-low": "#181b25", "tertiary-fixed": "#6ffbbe", "surface": "#0f131c", "surface-container-lowest": "#0a0e17", "on-primary-container": "#0d0096", "on-secondary-container": "#a8afff", "on-error-container": "#ffdad6", "outline-variant": "#464554", "secondary-fixed-dim": "#bdc2ff", "secondary": "#bdc2ff", "on-surface-variant": "#c7c4d7", "surface-container": "#1c1f29", "on-tertiary": "#003824", "on-secondary-fixed": "#000767", "surface-bright": "#353943", "primary": "#c0c1ff", "on-tertiary-fixed": "#002113", "outline": "#908fa0", "error-container": "#93000a", "tertiary-fixed-dim": "#4edea3", "on-error": "#690005", "on-primary-fixed": "#07006c", "inverse-on-surface": "#2c303a", "surface-tint": "#c0c1ff", "secondary-container": "#2f3aa3", "surface-container-high": "#262a34", "on-tertiary-fixed-variant": "#005236", "primary-fixed": "#e1e0ff", "on-surface": "#dfe2ef", "primary-fixed-dim": "#c0c1ff", "background": "#0f131c", "tertiary-container": "#00885d", "on-primary-fixed-variant": "#2f2ebe", "secondary-fixed": "#e0e0ff", "inverse-primary": "#494bd6", "on-primary": "#1000a9", "error": "#ffb4ab" }, borderRadius: { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" }, spacing: { "margin-tablet": "1.5rem", "gutter-desktop": "1.5rem", "space-md": "0.75rem", "space-xl": "1.5rem", "space-lg": "1rem", "gutter": "1rem", "margin-desktop": "2rem", "space-xs": "0.25rem", "space-sm": "0.5rem", "margin": "1rem" }, fontFamily: { "body-sm": ["Plus Jakarta Sans"], "headline-lg-mobile": ["Plus Jakarta Sans"], "headline-sm": ["Plus Jakarta Sans"], "display-lg": ["Plus Jakarta Sans"], "label-ui": ["Plus Jakarta Sans"], "body-lg": ["Plus Jakarta Sans"], "label-code-sm": ["JetBrains Mono"], "display-lg-mobile": ["Plus Jakarta Sans"], "label-code-md": ["JetBrains Mono"], "body-md": ["Plus Jakarta Sans"], "headline-lg": ["Plus Jakarta Sans"], "headline-md": ["Plus Jakarta Sans"] }, fontSize: { "body-sm": ["12px", {"lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "400"}], "headline-lg-mobile": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}], "headline-sm": ["16px", {"lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "600"}], "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.03em", "fontWeight": "700"}], "label-ui": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600"}], "body-lg": ["16px", {"lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400"}], "label-code-sm": ["11px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500"}], "display-lg-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}], "label-code-md": ["13px", {"lineHeight": "18px", "letterSpacing": "-0.01em", "fontWeight": "500"}], "body-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400"}], "headline-lg": ["30px", {"lineHeight": "38px", "letterSpacing": "-0.02em", "fontWeight": "600"}], "headline-md": ["20px", {"lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600"}] } } } };</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface text-on-surface font-body-md text-body-md antialiased min-h-screen flex flex-col relative overflow-x-hidden"><div aria-hidden="true" class="fixed inset-0 z-0 bg-surface-container-lowest opacity-40 pointer-events-none"></div><header class="fixed top-0 w-full z-50 pt-safe bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-14 px-margin flex items-center justify-between"><div class="flex items-center gap-space-xs"><button aria-label="Go back" class="w-11 h-11 -ml-space-xs flex items-center justify-center text-on-surface hover:text-primary transition-colors" onclick="history.back()"><span class="material-symbols-outlined text-[20px]">arrow_back</span></button><h1 class="font-headline-sm text-headline-sm text-on-surface font-semibold tracking-tight truncate max-w-[200px]">Revision Modal</h1></div><div class="flex items-center gap-space-sm"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex flex-col relative w-full pt-14 pb-safe bg-surface min-h-screen z-10"><div class="flex flex-col w-full relative select-none">
+<!-- Contextual Dimmed Background: Revision Center Behind Sheet -->
+<div aria-hidden="true" class="w-full px-margin space-y-space-md opacity-25 filter blur-[2px] pointer-events-none pb-96">
+<!-- Question Header Snapshot -->
+<div class="p-space-lg rounded-xl bg-surface-container-low text-on-surface shadow-sm">
+<div class="flex items-center justify-between mb-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="font-label-code-sm text-label-code-sm px-space-xs py-0.5 rounded bg-surface-container-highest text-tertiary">LC #1</span>
+<span class="font-label-ui text-label-ui px-space-xs py-0.5 rounded bg-surface-container text-on-surface-variant">Arrays &amp; Hash Table</span>
+</div>
+<span class="font-label-ui text-label-ui text-tertiary">Easy</span>
+</div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Two Sum</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.</p>
+</div>
+<!-- Active SRS Progress Stats Mock -->
+<div class="grid grid-cols-2 gap-space-sm">
+<div class="p-space-md rounded-xl bg-surface-container-low text-on-surface">
+<div class="font-label-ui text-label-ui text-on-surface-variant">SRS Interval</div>
+<div class="font-headline-sm text-headline-sm text-primary mt-1">7 Days</div>
+<div class="font-body-sm text-body-sm text-tertiary">Stage 2 of 5</div>
+</div>
+<div class="p-space-md rounded-xl bg-surface-container-low text-on-surface">
+<div class="font-label-ui text-label-ui text-on-surface-variant">Recall Accuracy</div>
+<div class="font-headline-sm text-headline-sm text-on-surface mt-1">94.2%</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">2 Sessions logged</div>
+</div>
+</div>
+<!-- Revision Log Mock -->
+<div class="p-space-md rounded-xl bg-surface-container text-on-surface">
+<div class="font-label-ui text-label-ui text-on-surface-variant mb-space-xs">History</div>
+<div class="flex items-center justify-between py-1">
+<span class="font-label-code-sm text-label-code-sm text-on-surface">Rev #1 ÔÇó Initial Solve</span>
+<span class="font-label-code-sm text-label-code-sm text-tertiary">Passed (O(n))</span>
+</div>
+<div class="flex items-center justify-between py-1">
+<span class="font-label-code-sm text-label-code-sm text-on-surface">Rev #2 ÔÇó Retention Check</span>
+<span class="font-label-code-sm text-label-code-sm text-secondary">Due 29 Oct</span>
+</div>
+</div>
+</div>
+<!-- Deep Obsidian Backdrop Overlay with Glassmorphism Fallback -->
+<div class="fixed inset-0 bg-surface-container-lowest/80 backdrop-blur-md z-30 pointer-events-auto transition-opacity" onclick="closeSheet()"></div>
+<!-- Modal Bottom Sheet Anchored Frame -->
+<section aria-label="Reschedule Revision Modal" class="fixed bottom-0 inset-x-0 z-40 max-h-[813px] overflow-y-auto rounded-t-full bg-surface-container shadow-2xl pb-safe transition-transform duration-300">
+<!-- Tactile Drag Indicator Bar -->
+<div class="sticky top-0 z-20 pt-space-sm pb-space-xs flex flex-col items-center bg-surface-container/95 backdrop-blur-md">
+<div class="w-12 h-1.5 rounded-full bg-outline-variant/60 active:bg-primary transition-colors cursor-grab"></div>
+</div>
+<!-- Modal Content Container -->
+<div class="px-margin pb-space-xl flex flex-col gap-space-lg">
+<!-- Modal Header -->
+<div class="flex items-start justify-between">
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="font-label-ui text-label-ui uppercase tracking-wider text-primary">Revision Scheduler</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface mt-0.5">Reschedule Revision</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Two Sum ÔÇó Revision #2 (Due 29 Oct)</p>
+</div>
+<button aria-label="Close dialog" class="w-9 h-9 rounded-full bg-surface-container-high flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container-highest transition-colors" onclick="closeSheet()" type="button">
+<span class="material-symbols-outlined text-[20px]">close</span>
+</button>
+</div>
+<!-- Current SRS Schedule State Card -->
+<div class="p-space-md rounded-xl bg-surface-container-low text-on-surface shadow-sm">
+<div class="flex items-center justify-between pb-space-sm mb-space-sm">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[18px] text-primary" style="font-variation-settings: 'FILL' 1;">sync</span>
+<span class="font-label-ui text-label-ui text-on-surface">SRS Cycle Active</span>
+</div>
+<span class="font-label-code-sm text-label-code-sm px-space-xs py-0.5 rounded bg-tertiary-container text-on-tertiary font-medium">On Track</span>
+</div>
+<div class="grid grid-cols-3 gap-space-xs text-left">
+<div class="p-space-xs rounded bg-surface-container text-on-surface">
+<span class="font-label-code-sm text-label-code-sm text-on-surface-variant block">Current Due</span>
+<span class="font-body-sm text-body-sm font-semibold text-on-surface mt-0.5 block truncate">29 Oct (Tomorrow)</span>
+</div>
+<div class="p-space-xs rounded bg-surface-container text-on-surface">
+<span class="font-label-code-sm text-label-code-sm text-on-surface-variant block">Interval</span>
+<span class="font-body-sm text-body-sm font-semibold text-primary mt-0.5 block truncate">7 Days (Step 2)</span>
+</div>
+<div class="p-space-xs rounded bg-surface-container text-on-surface">
+<span class="font-label-code-sm text-label-code-sm text-on-surface-variant block">Total Cards Due</span>
+<span class="font-body-sm text-body-sm font-semibold text-tertiary mt-0.5 block truncate">4 in Queue</span>
+</div>
+</div>
+</div>
+<!-- Quick Reschedule Presets (Segmented Pill Grid) -->
+<div class="space-y-space-xs">
+<div class="flex items-center justify-between">
+<label class="font-label-ui text-label-ui text-on-surface-variant uppercase tracking-wider">Fast Presets</label>
+<span class="font-label-code-sm text-label-code-sm text-primary">Target: 5 Nov (+7d)</span>
+</div>
+<div class="grid grid-cols-3 gap-space-xs" id="presetContainer">
+<button class="preset-pill py-2.5 px-space-xs rounded-xl bg-surface-container-high text-on-surface-variant hover:text-on-surface hover:bg-surface-container-highest transition-all text-center flex flex-col items-center" onclick="selectPreset(this, '30 Oct', 87)" type="button">
+<span class="font-label-ui text-label-ui">+1 Day</span>
+<span class="font-label-code-sm text-label-code-sm opacity-70">30 Oct</span>
+</button>
+<button class="preset-pill py-2.5 px-space-xs rounded-xl bg-surface-container-high text-on-surface-variant hover:text-on-surface hover:bg-surface-container-highest transition-all text-center flex flex-col items-center" onclick="selectPreset(this, '1 Nov', 85)" type="button">
+<span class="font-label-ui text-label-ui">+3 Days</span>
+<span class="font-label-code-sm text-label-code-sm opacity-70">1 Nov</span>
+</button>
+<!-- Recommended Preset Selected by Default -->
+<button class="preset-pill py-2.5 px-space-xs rounded-xl bg-primary-container text-on-primary-container shadow-sm transition-all text-center flex flex-col items-center relative" onclick="selectPreset(this, '5 Nov', 82)" type="button">
+<span class="font-label-ui text-label-ui font-semibold flex items-center gap-0.5">
+              +7 Days
+              <span class="material-symbols-outlined text-[13px]">stars</span>
+</span>
+<span class="font-label-code-sm text-label-code-sm opacity-90">5 Nov</span>
+</button>
+<button class="preset-pill py-2.5 px-space-xs rounded-xl bg-surface-container-high text-on-surface-variant hover:text-on-surface hover:bg-surface-container-highest transition-all text-center flex flex-col items-center" onclick="selectPreset(this, '2 Nov', 84)" type="button">
+<span class="font-label-ui text-label-ui">Weekend</span>
+<span class="font-label-code-sm text-label-code-sm opacity-70">2 Nov</span>
+</button>
+<button class="preset-pill py-2.5 px-space-xs rounded-xl bg-surface-container-high text-on-surface-variant hover:text-on-surface hover:bg-surface-container-highest transition-all text-center flex flex-col items-center" onclick="selectPreset(this, '12 Nov', 76)" type="button">
+<span class="font-label-ui text-label-ui">+14 Days</span>
+<span class="font-label-code-sm text-label-code-sm opacity-70">12 Nov</span>
+</button>
+<button class="preset-pill py-2.5 px-space-xs rounded-xl bg-surface-container-high text-on-surface-variant hover:text-on-surface hover:bg-surface-container-highest transition-all text-center flex flex-col items-center" onclick="toggleCalendarFocus()" type="button">
+<span class="font-label-ui text-label-ui">Custom</span>
+<span class="font-label-code-sm text-label-code-sm opacity-70">Pick Day</span>
+</button>
+</div>
+</div>
+<!-- Mini Interactive Calendar / Date Picker -->
+<div class="p-space-md rounded-xl bg-surface-container-low text-on-surface">
+<div class="flex items-center justify-between mb-space-sm">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[18px]">calendar_month</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">November 2024</span>
+</div>
+<div class="flex items-center gap-1">
+<button aria-label="Previous month" class="w-7 h-7 rounded bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-on-surface" type="button">
+<span class="material-symbols-outlined text-[16px]">chevron_left</span>
+</button>
+<button aria-label="Next month" class="w-7 h-7 rounded bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-on-surface" type="button">
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- Weekdays Header -->
+<div class="grid grid-cols-7 text-center font-label-code-sm text-label-code-sm text-on-surface-variant mb-space-xs">
+<span>Mo</span>
+<span>Tu</span>
+<span>We</span>
+<span>Th</span>
+<span>Fr</span>
+<span>Sa</span>
+<span>Su</span>
+</div>
+<!-- Calendar Days Grid (Focus on end of Oct & early Nov) -->
+<div class="grid grid-cols-7 gap-y-1.5 text-center font-label-code-sm text-label-code-sm" id="calendarDays">
+<!-- 28 Oct -->
+<div class="py-1.5 text-on-surface-variant opacity-40">28</div>
+<!-- 29 Oct (Original Due Date) -->
+<div class="py-1.5 flex flex-col items-center relative text-on-surface-variant">
+<span>29</span>
+<span class="w-1 h-1 rounded-full bg-error-container mt-0.5"></span>
+</div>
+<!-- 30 Oct -->
+<button class="cal-day py-1.5 rounded-lg hover:bg-surface-container text-on-surface flex flex-col items-center" onclick="selectCalendarDate(this, '30 Oct', 87)" type="button">
+<span>30</span>
+<span class="w-1 h-1 rounded-full bg-secondary-container mt-0.5"></span>
+</button>
+<!-- 31 Oct -->
+<button class="cal-day py-1.5 rounded-lg hover:bg-surface-container text-on-surface flex flex-col items-center" onclick="selectCalendarDate(this, '31 Oct', 86)" type="button">
+<span>31</span>
+<span class="w-1 h-1 rounded-full bg-transparent mt-0.5"></span>
+</button>
+<!-- 1 Nov -->
+<button class="cal-day py-1.5 rounded-lg hover:bg-surface-container text-on-surface flex flex-col items-center" onclick="selectCalendarDate(this, '1 Nov', 85)" type="button">
+<span>1</span>
+<span class="w-1 h-1 rounded-full bg-tertiary-container mt-0.5"></span>
+</button>
+<!-- 2 Nov -->
+<button class="cal-day py-1.5 rounded-lg hover:bg-surface-container text-on-surface flex flex-col items-center" onclick="selectCalendarDate(this, '2 Nov', 84)" type="button">
+<span>2</span>
+<span class="w-1 h-1 rounded-full bg-transparent mt-0.5"></span>
+</button>
+<!-- 3 Nov -->
+<button class="cal-day py-1.5 rounded-lg hover:bg-surface-container text-on-surface flex flex-col items-center" onclick="selectCalendarDate(this, '3 Nov', 83)" type="button">
+<span>3</span>
+<span class="w-1 h-1 rounded-full bg-secondary-container mt-0.5"></span>
+</button>
+<!-- Week 2 -->
+<button class="cal-day py-1.5 rounded-lg hover:bg-surface-container text-on-surface flex flex-col items-center" onclick="selectCalendarDate(this, '4 Nov', 83)" type="button">
+<span>4</span>
+<span class="w-1 h-1 rounded-full bg-tertiary-container mt-0.5"></span>
+</button>
+<!-- 5 Nov: Selected Target Date -->
+<button class="cal-day py-1.5 rounded-lg bg-primary text-on-primary font-bold shadow-sm flex flex-col items-center scale-105 transition-all" onclick="selectCalendarDate(this, '5 Nov', 82)" type="button">
+<span>5</span>
+<span class="w-1 h-1 rounded-full bg-on-primary mt-0.5"></span>
+</button>
+<button class="cal-day py-1.5 rounded-lg hover:bg-surface-container text-on-surface flex flex-col items-center" onclick="selectCalendarDate(this, '6 Nov', 81)" type="button">
+<span>6</span>
+<span class="w-1 h-1 rounded-full bg-secondary-container mt-0.5"></span>
+</button>
+<button class="cal-day py-1.5 rounded-lg hover:bg-surface-container text-on-surface flex flex-col items-center" onclick="selectCalendarDate(this, '7 Nov', 80)" type="button">
+<span>7</span>
+<span class="w-1 h-1 rounded-full bg-transparent mt-0.5"></span>
+</button>
+<button class="cal-day py-1.5 rounded-lg hover:bg-surface-container text-on-surface flex flex-col items-center" onclick="selectCalendarDate(this, '8 Nov', 79)" type="button">
+<span>8</span>
+<span class="w-1 h-1 rounded-full bg-tertiary-container mt-0.5"></span>
+</button>
+<button class="cal-day py-1.5 rounded-lg hover:bg-surface-container text-on-surface flex flex-col items-center" onclick="selectCalendarDate(this, '9 Nov', 78)" type="button">
+<span>9</span>
+<span class="w-1 h-1 rounded-full bg-transparent mt-0.5"></span>
+</button>
+<button class="cal-day py-1.5 rounded-lg hover:bg-surface-container text-on-surface flex flex-col items-center" onclick="selectCalendarDate(this, '10 Nov', 77)" type="button">
+<span>10</span>
+<span class="w-1 h-1 rounded-full bg-tertiary-container mt-0.5"></span>
+</button>
+</div>
+<!-- Schedule Density Legend / Status footer -->
+<div class="mt-space-sm pt-space-xs flex items-center justify-between bg-surface-container/60 p-space-xs rounded-lg">
+<div class="flex items-center gap-space-xs">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+<span class="font-label-code-sm text-label-code-sm text-on-surface" id="workloadLabel">Light workload on 5 Nov (2 questions due)</span>
+</div>
+<span class="font-label-code-sm text-label-code-sm text-tertiary">Optimal Slot</span>
+</div>
+</div>
+<!-- Spaced Repetition (SRS) Retention Impact Warning -->
+<div class="p-space-md rounded-xl bg-surface-container-low text-on-surface space-y-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[18px]">analytics</span>
+<span class="font-label-ui text-label-ui text-on-surface">Retention Impact Analysis</span>
+</div>
+<span class="font-label-code-sm text-label-code-sm text-secondary font-semibold" id="retentionText">88% ÔåÆ 82%</span>
+</div>
+<!-- Simulated SVG Ebbinghaus Retention Decay Curve -->
+<div class="w-full h-12 bg-surface-container rounded-lg p-1.5 flex items-center justify-center relative overflow-hidden">
+<svg class="w-full h-full" fill="none" preserveaspectratio="none" viewbox="0 0 300 40">
+<!-- Grid baseline -->
+<path d="M0 35 H300" stroke="#31353f" stroke-dasharray="2 2" stroke-width="1"></path>
+<!-- Safe curve -->
+<path d="M0 8 C60 12, 120 18, 180 24 C230 29, 270 33, 300 35" opacity="0.3" stroke="#4edea3" stroke-width="2"></path>
+<!-- Projected shift curve -->
+<path d="M0 8 C50 14, 110 23, 170 29 C220 33, 260 36, 300 37" id="curvePath" stroke="#c0c1ff" stroke-linecap="round" stroke-width="2.5"></path>
+<!-- Marker node on new date -->
+<circle cx="160" cy="28" fill="#c0c1ff" r="4" stroke="#0f131c" stroke-width="1.5"></circle>
+</svg>
+</div>
+<div class="flex items-start gap-space-xs p-space-xs rounded bg-surface-container-high/60">
+<span class="material-symbols-outlined text-[16px] text-tertiary shrink-0 mt-0.5">info</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Rescheduling preserves your 2 completed revision logs. Next progression adjusts upon completion.</p>
+</div>
+<!-- Streak Protection Switch -->
+<div class="flex items-center justify-between pt-space-xs">
+<div class="flex flex-col pr-space-sm">
+<span class="font-label-ui text-label-ui text-on-surface">Protect SRS Streak Stage</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Don't reset to Stage 1 on delayed solve</span>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" id="streakToggle" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-highest rounded-full peer peer-checked:after:translate-x-full peer-checked:bg-primary after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-on-primary after:rounded-full after:h-5 after:w-5 after:transition-all"></div>
+</label>
+</div>
+</div>
+<!-- Reschedule Reason / Reflection Note (Optional) -->
+<div class="space-y-space-xs">
+<label class="font-label-ui text-label-ui text-on-surface-variant uppercase tracking-wider block">Reason &amp; Pre-Study Note (Optional)</label>
+<!-- Quick Reason Tag Chips -->
+<div class="flex flex-wrap gap-1.5" id="reasonTags">
+<button class="tag-chip font-label-code-sm text-label-code-sm px-space-sm py-1 rounded bg-surface-container-high text-on-surface-variant hover:text-on-surface hover:bg-surface-container-highest transition-colors" onclick="selectReason(this)" type="button">Sprint crunch</button>
+<button class="tag-chip font-label-code-sm text-label-code-sm px-space-sm py-1 rounded bg-surface-container-high text-on-surface-variant hover:text-on-surface hover:bg-surface-container-highest transition-colors" onclick="selectReason(this)" type="button">Review Hash Maps first</button>
+<button class="tag-chip font-label-code-sm text-label-code-sm px-space-sm py-1 rounded bg-surface-container-high text-on-surface-variant hover:text-on-surface hover:bg-surface-container-highest transition-colors" onclick="selectReason(this)" type="button">Harder than expected</button>
+</div>
+<div class="relative mt-space-xs">
+<textarea class="w-full rounded-xl bg-surface-container-lowest p-space-sm font-body-sm text-body-sm text-on-surface placeholder:text-outline focus:outline-none focus:bg-surface-container transition-colors resize-none" id="reflectionNote" placeholder="e.g., Focus on two-pass vs one-pass map logic next time..." rows="2"></textarea>
+<span class="absolute right-3 bottom-2 font-label-code-sm text-label-code-sm text-outline pointer-events-none">LC-SRS #1</span>
+</div>
+</div>
+<!-- Action Confirmation & Secondary Options -->
+<div class="flex flex-col gap-space-sm pt-space-xs">
+<button class="w-full py-3.5 px-space-lg rounded-xl bg-primary text-on-primary font-headline-sm text-headline-sm flex items-center justify-center gap-space-xs shadow-lg shadow-primary/20 active:scale-[0.98] transition-all" onclick="confirmReschedule()" type="button">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">event_available</span>
+<span id="confirmBtnLabel">Confirm Reschedule (5 Nov)</span>
+</button>
+<button class="w-full py-3 px-space-lg rounded-xl bg-surface-container-high text-on-surface hover:bg-surface-container-highest font-headline-sm text-headline-sm transition-colors text-center" onclick="closeSheet()" type="button">
+          Keep Current Date (29 Oct)
+        </button>
+<!-- Chronological State Audit Trail Note -->
+<p class="font-body-sm text-body-sm text-center text-outline-variant text-[11px] leading-tight px-space-md">
+<span class="font-label-code-sm text-label-code-sm">lastActivityAt</span> timestamp remains preserved for accurate sprint velocity logs.
+        </p>
+</div>
+</div>
+</section>
+</div>
+<script>
+  let selectedTargetDate = '5 Nov';
+
+  function closeSheet() {
+    const sheet = document.querySelector('section');
+    if (sheet) {
+      sheet.classList.add('translate-y-full');
+      setTimeout(() => {
+        window.history.length > 1 ? window.history.back() : null;
+      }, 250);
+    }
+  }
+
+  function selectPreset(el, dateText, retentionScore) {
+    document.querySelectorAll('.preset-pill').forEach(btn => {
+      btn.className = 'preset-pill py-2.5 px-space-xs rounded-xl bg-surface-container-high text-on-surface-variant hover:text-on-surface hover:bg-surface-container-highest transition-all text-center flex flex-col items-center';
+    });
+    el.className = 'preset-pill py-2.5 px-space-xs rounded-xl bg-primary-container text-on-primary-container shadow-sm transition-all text-center flex flex-col items-center relative';
+    updateSelectedDate(dateText, retentionScore);
+  }
+
+  function selectCalendarDate(el, dateText, retentionScore) {
+    document.querySelectorAll('.cal-day').forEach(btn => {
+      btn.className = 'cal-day py-1.5 rounded-lg hover:bg-surface-container text-on-surface flex flex-col items-center';
+      const dot = btn.querySelector('span:last-child');
+      if (dot) dot.classList.replace('bg-on-primary', 'bg-secondary-container');
+    });
+
+    el.className = 'cal-day py-1.5 rounded-lg bg-primary text-on-primary font-bold shadow-sm flex flex-col items-center scale-105 transition-all';
+    const activeDot = el.querySelector('span:last-child');
+    if (activeDot) activeDot.classList.replace('bg-secondary-container', 'bg-on-primary');
+
+    updateSelectedDate(dateText, retentionScore);
+  }
+
+  function toggleCalendarFocus() {
+    const cal = document.getElementById('calendarDays');
+    if (cal) {
+      cal.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  }
+
+  function selectReason(el) {
+    const isSelected = el.classList.contains('bg-primary-container');
+    if (isSelected) {
+      el.className = 'tag-chip font-label-code-sm text-label-code-sm px-space-sm py-1 rounded bg-surface-container-high text-on-surface-variant hover:text-on-surface hover:bg-surface-container-highest transition-colors';
+    } else {
+      el.className = 'tag-chip font-label-code-sm text-label-code-sm px-space-sm py-1 rounded bg-primary-container text-on-primary-container font-semibold transition-colors';
+      const input = document.getElementById('reflectionNote');
+      if (input && !input.value) {
+        input.value = el.innerText + ': ';
+        input.focus();
+      }
+    }
+  }
+
+  function updateSelectedDate(dateText, retentionScore) {
+    selectedTargetDate = dateText;
+    const btnLabel = document.getElementById('confirmBtnLabel');
+    if (btnLabel) btnLabel.innerText = `Confirm Reschedule (${dateText})`;
+
+    const retentionText = document.getElementById('retentionText');
+    if (retentionText) retentionText.innerText = `88% ÔåÆ ${retentionScore}%`;
+
+    const workload = document.getElementById('workloadLabel');
+    if (workload) {
+      workload.innerText = `Scheduled review on ${dateText} (2 questions due)`;
+    }
+  }
+
+  function confirmReschedule() {
+    const btn = document.querySelector('button[onclick="confirmReschedule()"]');
+    if (btn) {
+      btn.innerHTML = `<span class="material-symbols-outlined text-[20px] animate-spin">progress_activity</span><span>Saving...</span>`;
+      setTimeout(() => {
+        btn.innerHTML = `<span class="material-symbols-outlined text-[20px]">check_circle</span><span>Rescheduled for ${selectedTargetDate}</span>`;
+        btn.classList.replace('bg-primary', 'bg-tertiary');
+        btn.classList.replace('text-on-primary', 'text-on-tertiary');
+        setTimeout(closeSheet, 700);
+      }, 600);
+    }
+  }
+</script></main></body></html>

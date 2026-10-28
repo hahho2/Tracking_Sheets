@@ -1,0 +1,129 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-jakarta), system-ui, -apple-system, sans-serif;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--surface-card);
+  --color-card-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-surface-card: var(--surface-card);
+  --color-surface-border: var(--surface-border);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-xl: 1rem;
+  --radius-2xl: 1.25rem;
+  --radius-3xl: 1.5rem;
+}
+
+@layer base {
+  :root {
+    --background: #f1f3f8;
+    --foreground: #1e2532;
+    --surface: #e9ecf5;
+    --surface-card: #ffffff;
+    --surface-border: #dbe0eb;
+    --primary: #4f46e5;
+    --primary-foreground: #ffffff;
+    --muted: #64748b;
+    --muted-foreground: #64748b;
+    --accent: #6366f1;
+    --accent-foreground: #ffffff;
+    --border: #e2e8f0;
+    --input: #f8fafc;
+    --ring: #4f46e5;
+  }
+
+  .dark {
+    --background: #090d16;
+    --foreground: #f8fafc;
+    --surface: #0e1526;
+    --surface-card: #131c2e;
+    --surface-border: #1f2d48;
+    --primary: #818cf8;
+    --primary-foreground: #090d16;
+    --muted: #94a3b8;
+    --muted-foreground: #64748b;
+    --accent: #6366f1;
+    --accent-foreground: #ffffff;
+    --border: #1f2d48;
+    --input: #0c1322;
+    --ring: #818cf8;
+  }
+
+  * {
+    border-color: var(--border);
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+}
+
+/* Neo-morphic elevation effects matching Stitch Design screens */
+.neo-raised {
+  background-color: var(--surface-card);
+  box-shadow: 6px 6px 16px rgba(0, 0, 0, 0.06), -6px -6px 16px rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+}
+
+.dark .neo-raised {
+  background-color: #131c2e;
+  border: 1px solid #1f2d48;
+  box-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.65), 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+.neo-inset {
+  background-color: var(--surface);
+  box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.06), inset -2px -2px 5px rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.dark .neo-inset {
+  background-color: #0c1322;
+  border: 1px solid #1b263b;
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.55);
+}
+
+.neo-fab {
+  box-shadow: 0 10px 25px -3px rgba(79, 70, 229, 0.4), 0 4px 6px -4px rgba(79, 70, 229, 0.2);
+}
+
+.dark .neo-fab {
+  box-shadow: 0 10px 25px -3px rgba(99, 102, 241, 0.5), 0 0 15px rgba(129, 140, 248, 0.35);
+}
+
+/* Custom sleek scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(140, 145, 160, 0.25);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(140, 145, 160, 0.45);
+}
+
+/* Glassmorphism helpers */
+.glass-panel {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
