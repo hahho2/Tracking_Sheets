@@ -8,6 +8,7 @@ const sourceSchema = z.object({ platform: z.string().max(80), url: z.string().ur
 // DSA records are created only through addCatalogueProblem, which binds them to a shared catalogue row.
 const questionSchema = z.object({ title: z.string().trim().min(1).max(300), category: z.enum(["SQL", "Languages"]), topic: z.string().trim().min(1).max(120), language: z.string().max(100).optional(), difficulty: z.enum(["Easy", "Medium", "Hard"]), status: z.enum(["Done", "In Progress", "Not Started", "Skipped"]), sources: z.array(sourceSchema).max(20), notes: z.string().max(100000), codeSnippet: z.string().max(100000).optional(), codeLanguage: z.string().max(100).optional() });
 const questionUpdateSchema = z.object({ status: z.enum(["Done", "In Progress", "Not Started", "Skipped"]).optional(), notes: z.string().max(100000).optional(), codeSnippet: z.string().max(100000).optional(), codeLanguage: z.string().max(100).optional() }).strict();
+const importQuestionSchema = questionSchema.extend({ category: z.enum(["SQL", "Languages"]), sources: z.array(sourceSchema).max(1) });
 const rejectManualDsa = (input: unknown) => {
   const category = input && typeof input === "object" && "category" in input ? String(input.category).trim().toUpperCase() : "";
   if (["DSA", "ALGORITHM", "ALGORITHMS"].includes(category)) throw new Error("Manual DSA question creation is disabled. Please select a problem from the shared catalogue.");
@@ -28,6 +29,13 @@ export async function createQuestion(input: unknown) {
   const user = await requireUser(); rejectManualDsa(input); const data = questionSchema.parse(input);
   const question = await db.question.create({ data: { ...data, userId: user.id, nextDueDate: new Date(Date.now() + 86400000), sources: { create: data.sources } } });
   revalidatePath("/"); return question.id;
+}
+export async function bulkCreateQuestions(input: unknown) {
+  const user = await requireUser();
+  const rows = z.array(importQuestionSchema).min(1).max(200).parse(input);
+  await db.$transaction(rows.map(row => db.question.create({ data: { ...row, userId: user.id, nextDueDate: new Date(Date.now() + 86400000), sources: { create: row.sources } } })));
+  revalidatePath("/");
+  return { created: rows.length };
 }
 export async function updateQuestion(id: string, input: unknown) {
   const user = await requireUser(); rejectManualDsa(input); const data = questionUpdateSchema.parse(input);

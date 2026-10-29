@@ -133,7 +133,7 @@ export default function AddQuestionPage() {
           <span>Back to Problem Library</span>
         </Link>
         <span className="text-xs font-semibold text-muted-foreground">
-          Add New Question
+          <Link href="/questions/import" className="text-primary hover:underline">Bulk upload from Excel</Link>
         </span>
       </div>
 
