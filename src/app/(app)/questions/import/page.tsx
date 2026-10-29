@@ -8,8 +8,12 @@ import { bulkCreateQuestions } from "@/app/actions/study";
 import { useAppStore } from "@/lib/store";
 
 type Category = "SQL" | "Languages";
-type PreviewRow = { title: string; topic: string; difficulty: "Easy" | "Medium" | "Hard"; status: "Not Started" | "In Progress" | "Done" | "Skipped"; language?: string; notes: string; sourceUrl?: string; codeSnippet?: string };
+type PreviewRow = { title: string; topic: string; difficulty: "Easy" | "Medium" | "Hard"; status: "Not Started" | "In Progress" | "Done" | "Skipped"; language?: string; notes: string; sourceUrl?: string; codeSnippet?: string; reminderDate?: string };
 const text = (value: unknown) => typeof value === "string" ? value.trim() : value == null ? "" : String(value).trim();
+const reminderDate = (value: unknown) => {
+  if (typeof value === "number") { const date = XLSX.SSF.parse_date_code(value); return date ? `${date.y}-${String(date.m).padStart(2, "0")}-${String(date.d).padStart(2, "0")}` : ""; }
+  return text(value);
+};
 
 export default function ImportQuestionsPage() {
   const inputRef = useRef<HTMLInputElement>(null); const { refreshStudyState } = useAppStore();
@@ -23,10 +27,10 @@ export default function ImportQuestionsPage() {
       const headerRow = XLSX.utils.sheet_to_json<unknown[]>(first, { header: 1 }).findIndex(row => row.some(cell => text(cell).toLowerCase() === "title"));
       if (headerRow < 0) throw new Error("The sheet needs a header row containing title, topic, and difficulty.");
       const raw = XLSX.utils.sheet_to_json<Record<string, unknown>>(first, { defval: "", range: headerRow });
-      const parsed = raw.map(row => ({ title: text(row.title), topic: text(row.topic), difficulty: text(row.difficulty) as PreviewRow["difficulty"], status: (text(row.status) || "Not Started") as PreviewRow["status"], language: text(row.language) || undefined, notes: text(row.notes), sourceUrl: text(row.source_url) || undefined, codeSnippet: text(row.code_snippet) || undefined }));
+      const parsed = raw.map(row => ({ title: text(row.title), topic: text(row.topic), difficulty: text(row.difficulty) as PreviewRow["difficulty"], status: (text(row.status) || "Not Started") as PreviewRow["status"], language: text(row.language) || undefined, notes: text(row.notes), sourceUrl: text(row.source_url) || undefined, codeSnippet: text(row.code_snippet) || undefined, reminderDate: reminderDate(row.reminder_date) || undefined }));
       if (!parsed.length || parsed.length > 200) throw new Error("The sheet must contain between 1 and 200 data rows.");
-      const invalid = parsed.find(row => !row.title || !row.topic || !["Easy", "Medium", "Hard"].includes(row.difficulty) || !["Not Started", "In Progress", "Done", "Skipped"].includes(row.status) || (category === "Languages" && !row.language));
-      if (invalid) throw new Error("Each row needs title, topic, Easy/Medium/Hard difficulty, a valid status, and a language for Language imports.");
+      const invalid = parsed.find(row => !row.title || !row.topic || !["Easy", "Medium", "Hard"].includes(row.difficulty) || !["Not Started", "In Progress", "Done", "Skipped"].includes(row.status) || (category === "Languages" && !row.language) || (row.reminderDate && !/^\d{4}-\d{2}-\d{2}$/.test(row.reminderDate)));
+      if (invalid) throw new Error("Each row needs title, topic, Easy/Medium/Hard difficulty, a valid status, a language for Language imports, and a YYYY-MM-DD reminder date when supplied.");
       setRows(parsed); setFileName(file.name);
     } catch (reason) { setError(reason instanceof Error ? reason.message : "This workbook could not be read."); }
   }
